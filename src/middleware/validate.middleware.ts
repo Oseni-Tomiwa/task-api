@@ -14,3 +14,15 @@ export const validateBody = (schema: ZodType): RequestHandler => (request, _resp
   request.body = result.data;
   next();
 };
+
+export const validateParams = (schema: ZodType): RequestHandler => (request, _response, next) => {
+  const result = schema.safeParse(request.params);
+
+  if (!result.success) {
+    next(new AppError(400, 'Invalid request data'));
+    return;
+  }
+
+  request.params = result.data as Record<string, string>;
+  next();
+};

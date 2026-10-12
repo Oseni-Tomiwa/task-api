@@ -1,6 +1,7 @@
 import express from 'express';
 
 import { authRouter } from './features/auth/auth.routes.js';
+import { taskRouter } from './features/tasks/task.routes.js';
 import { errorHandler, notFound } from './middleware/error.middleware.js';
 
 export const app = express();
@@ -12,6 +13,7 @@ app.get('/api/health', (_request, response) => {
 });
 
 app.use('/api/auth', authRouter);
+app.use('/api/tasks', taskRouter);
 
 app.use(notFound);
 app.use(errorHandler);
