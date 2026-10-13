@@ -1,4 +1,6 @@
-import { model, models, Schema, type Model } from 'mongoose';
+import mongoose, { type Model } from 'mongoose';
+
+const { model, models, Schema } = mongoose;
 
 export interface UserDocument {
   email: string;

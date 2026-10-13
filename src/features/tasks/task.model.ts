@@ -1,4 +1,6 @@
-import { model, models, Schema, Types, type HydratedDocument, type Model } from 'mongoose';
+import mongoose, { type HydratedDocument, type Model, type Types } from 'mongoose';
+
+const { model, models, Schema } = mongoose;
 
 export const TASK_STATUSES = ['pending', 'in-progress', 'completed'] as const;
 
